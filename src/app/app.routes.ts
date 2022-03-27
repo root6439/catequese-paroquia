@@ -8,4 +8,9 @@ export const ROUTES: Routes = [
         (m) => m.CatechizingModule
       ),
   },
+  {
+    path: '',
+    redirectTo: 'catequisandos',
+    pathMatch: 'full',
+  },
 ];

@@ -1,3 +1,4 @@
+import { SharedModule } from './../shared/shared.module';
 import { ROUTES } from './catechizing.routes';
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
@@ -16,6 +17,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatSortModule,
     MatPaginatorModule,
     RouterModule.forChild(ROUTES),
+    SharedModule,
   ],
 })
 export class CatechizingModule {}
