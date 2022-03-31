@@ -1,0 +1,13 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item" *ngFor="let name of names; let i = index">
+      <a [routerLink]="[urls[i]]" *ngIf="urls[i] != router.url">
+        {{ name }}
+      </a>
+
+      <a *ngIf="urls[i] == router.url" routerLinkActive="active">
+        {{ name }}
+      </a>
+    </li>
+  </ol>
+</nav>

@@ -4,4 +4,5 @@ export interface Class {
   catechist: Catechist[];
   startDate: Date;
   endDate: Date;
+  code: string;
 }
