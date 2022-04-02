@@ -10,7 +10,6 @@ export const ROUTES: Routes = [
   },
   {
     path: '',
-    redirectTo: 'catequisandos',
-    pathMatch: 'full',
+    loadChildren: () => import('./home/home.module').then((m) => m.HomeModule),
   },
 ];
