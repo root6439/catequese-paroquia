@@ -55,7 +55,7 @@ export class SearchCatechizingComponent implements OnInit {
   ]);
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatSort) sort: MatSort ;
 
   constructor(public router: Router) {}
 
