@@ -1,9 +1,14 @@
-<button mat-raised-button color="primary" (click)="onClickInsert()">
+<button
+  mat-raised-button
+  color="primary"
+  type="button"
+  (click)="onClickInsert()"
+>
   <mat-icon>add_circle_outline</mat-icon>
   Cadastrar
 </button>
 
-<button type="button" mat-stroked-button matSuffix (click)="hide = !hide">
+<button type="button" mat-stroked-button matSuffix (click)="hide = !hide" class="mx-2">
   <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
   Filtros
 </button>

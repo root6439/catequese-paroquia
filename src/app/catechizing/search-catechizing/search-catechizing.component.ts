@@ -1,6 +1,5 @@
-import { Class } from './../../shared/models/class';
 import { Catechizing } from './../../shared/models/catechizing';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
@@ -11,7 +10,7 @@ import { Router } from '@angular/router';
   templateUrl: './search-catechizing.component.html',
   styleUrls: ['./search-catechizing.component.scss'],
 })
-export class SearchCatechizingComponent implements OnInit {
+export class SearchCatechizingComponent implements OnInit, AfterViewInit {
   displayedColumns: string[] = ['id', 'name', 'birthDate', 'class', 'parent'];
   dataSource: MatTableDataSource<Catechizing> = new MatTableDataSource([
     { id: 1, name: 'João', dateBirth: new Date(), class: null, parent: null },
@@ -55,7 +54,7 @@ export class SearchCatechizingComponent implements OnInit {
   ]);
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort ;
+  @ViewChild(MatSort) sort: MatSort;
 
   constructor(public router: Router) {}
 

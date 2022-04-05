@@ -1,3 +1,4 @@
+import { PhonePipe } from './pipes/phone.pipe';
 import { RouterModule } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -7,8 +8,8 @@ import { InsertFilterComponent } from './insert-filter/insert-filter.component';
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 
 @NgModule({
-  declarations: [InsertFilterComponent, BreadcrumbComponent],
+  declarations: [InsertFilterComponent, BreadcrumbComponent, PhonePipe],
   imports: [CommonModule, MatIconModule, MatButtonModule, RouterModule],
-  exports: [InsertFilterComponent, BreadcrumbComponent],
+  exports: [InsertFilterComponent, BreadcrumbComponent, PhonePipe],
 })
 export class SharedModule {}
