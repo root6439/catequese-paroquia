@@ -1,6 +1,6 @@
 <app-breadcrumb
   [names]="[
-    'Catequisandos',
+    'Home',
     'Pesquisar catequisando',
     'Cadastrar catequisando'
   ]"
@@ -155,7 +155,7 @@
   </mat-card>
 
   <div class="d-flex justify-content-end mt-3">
-    <button mat-raised-button color="primary">Cadastrar</button>
-    <button mat-button>Cancelar</button>
+    <button mat-raised-button color="primary" type="submit">Cadastrar</button>
+    <button mat-button type="button" routerLink="/catequisandos/busca">Cancelar</button>
   </div>
 </form>
