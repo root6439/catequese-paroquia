@@ -1,5 +1,5 @@
 <app-breadcrumb
-  [names]="['Catequistas', 'Pesquisar catequista', 'Cadastrar catequista']"
+  [names]="['Home', 'Pesquisar catequista', 'Cadastrar catequista']"
   [urls]="['/', '/catequistas/busca', '/catequistas/cadastro']"
 ></app-breadcrumb>
 
@@ -22,13 +22,13 @@
           <mat-error>Campo obrigatório!</mat-error>
         </mat-form-field>
 
-        <mat-form-field appearance="legacy" class="col-6">
+        <mat-form-field appearance="legacy" class="col-3">
           <mat-label>Telfone</mat-label>
           <input matInput formControlName="phone" />
           <mat-error>Campo obrigatório!</mat-error>
         </mat-form-field>
 
-        <mat-form-field appearance="legacy" class="col-6">
+        <mat-form-field appearance="legacy" class="col-3">
           <mat-label>Data de nascimento</mat-label>
           <input matInput [matDatepicker]="picker" formControlName="birth" />
           <mat-datepicker-toggle
@@ -47,13 +47,13 @@
           <mat-error>Campo obrigatório!</mat-error>
         </mat-form-field>
 
-        <mat-form-field appearance="legacy" class="col-6">
+        <mat-form-field appearance="legacy" class="col-3">
           <mat-label>RG</mat-label>
           <input matInput formControlName="rg" />
           <mat-error>Campo obrigatório!</mat-error>
         </mat-form-field>
 
-        <mat-form-field appearance="legacy" class="col-6">
+        <mat-form-field appearance="legacy" class="col-3">
           <mat-label>CPF</mat-label>
           <input matInput formControlName="cpf" />
           <mat-error>Campo obrigatório!</mat-error>
@@ -63,23 +63,7 @@
   </mat-card>
 
   <div class="d-flex justify-content-end mt-3">
-    <button mat-raised-button color="primary">Cadastrar</button>
-    <button mat-button>Cancelar</button>
+    <button mat-raised-button color="primary" type="submit">Cadastrar</button>
+    <button mat-button type="button">Cancelar</button>
   </div>
 </form>
-
-<div>
-  <pre>
-
-      {{ form.value | json }}
-    </pre
-  >
-</div>
-
-<div>
-  <pre>
-
-      {{ form.get('birth').errors | json }}
-    </pre
-  >
-</div>

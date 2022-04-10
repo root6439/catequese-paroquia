@@ -18,9 +18,6 @@ import { MatNativeDateModule, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular
     RouterModule.forRoot(ROUTES),
     MatNativeDateModule,
   ],
-  providers: [
-    { provide: MAT_DATE_LOCALE, useValue: 'en-GB' }
-  ],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

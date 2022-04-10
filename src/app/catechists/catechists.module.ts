@@ -14,6 +14,7 @@ import { InsertCatechistsComponent } from './insert-catechists/insert-catechists
 import { SearchCatechistsComponent } from './search-catechists/search-catechists.component';
 import { ROUTES } from './catechists.routes';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MAT_DATE_LOCALE } from '@angular/material/core';
 
 @NgModule({
   declarations: [InsertCatechistsComponent, SearchCatechistsComponent],
