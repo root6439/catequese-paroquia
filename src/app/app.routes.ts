@@ -14,6 +14,11 @@ export const ROUTES: Routes = [
       import('./catechists/catechists.module').then((m) => m.CatechistsModule),
   },
   {
+    path: 'administracao',
+    loadChildren: () =>
+      import('./admin/admin.module').then((m) => m.AdminModule),
+  },
+  {
     path: '',
     loadChildren: () => import('./home/home.module').then((m) => m.HomeModule),
   },
