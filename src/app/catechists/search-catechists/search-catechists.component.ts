@@ -22,6 +22,7 @@ export class SearchCatechistsComponent implements OnInit, AfterViewInit {
       address: null,
       cpf: '10553687956',
       rg: '6863159',
+      birth: new Date(),
     },
     {
       id: 2,
@@ -32,6 +33,7 @@ export class SearchCatechistsComponent implements OnInit, AfterViewInit {
       address: null,
       cpf: '10553687956',
       rg: '6863159',
+      birth: new Date(),
     },
   ]);
 

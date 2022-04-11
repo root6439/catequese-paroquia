@@ -19,6 +19,11 @@ export const ROUTES: Routes = [
       import('./admin/admin.module').then((m) => m.AdminModule),
   },
   {
+    path: 'turmas',
+    loadChildren: () =>
+      import('./class/class.module').then((m) => m.ClassModule),
+  },
+  {
     path: '',
     loadChildren: () => import('./home/home.module').then((m) => m.HomeModule),
   },

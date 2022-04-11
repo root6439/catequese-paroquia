@@ -1,0 +1,117 @@
+<app-breadcrumb
+  [names]="['Home', 'Pesquisar turma', 'Cadastrar turma']"
+  [urls]="['/', '/turmas/busca', '/turmas/cadastro']"
+></app-breadcrumb>
+
+<h1>Cadastrar turmas de catequese</h1>
+
+<form (ngSubmit)="onSubmit()" [formGroup]="form">
+  <mat-card>
+    <mat-card-header>
+      <div mat-card-avatar>
+        <mat-icon>account_circle</mat-icon>
+      </div>
+      <mat-card-title>Dados da turma</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <div class="row">
+        <mat-form-field appearance="legacy" class="col-6">
+          <mat-label>Código</mat-label>
+          <input matInput formControlName="code" />
+          <mat-error>Campo obrigatório!</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="legacy" class="col-3">
+          <mat-label>Data de início</mat-label>
+          <input
+            matInput
+            [matDatepicker]="picker"
+            formControlName="startDate"
+          />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="picker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+          <mat-error>Campo obrigatório!</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="legacy" class="col-3">
+          <mat-label>Data de término</mat-label>
+          <input matInput [matDatepicker]="picker2" formControlName="endDate" />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="picker2"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker2></mat-datepicker>
+          <mat-error>Campo obrigatório!</mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="row">
+        <mat-form-field>
+          <mat-label>Pesquisar catequistas</mat-label>
+          <input
+            matInput
+            aria-label="State"
+            [matAutocomplete]="auto"
+            [formControl]="searchCatechist"
+          />
+          <mat-autocomplete #auto="matAutocomplete">
+            <mat-option
+              *ngFor="let data of catechists"
+              (onSelectionChange)="addCatechist(data)"
+            >
+              <!-- <img
+                class="example-option-img"
+                aria-hidden
+                [src]="state.flag"
+                height="25"
+              /> -->
+              <img
+                src="https://material.angular.io/assets/img/examples/shiba2.jpg"
+                alt="Photo of a Shiba Inu"
+                height="25"
+              />
+              <span>{{ data.name }}</span> |
+              <small>Telefone: {{ data.phone }}</small>
+            </mat-option>
+          </mat-autocomplete>
+
+          <button matSuffix mat-icon-button aria-label="Clear" type="button">
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-form-field>
+      </div>
+
+      <h1 *ngIf="selectedCatechists.length > 0">Catequistas selecionados</h1>
+
+      <div class="row m-1" *ngFor="let catechist of selectedCatechists" >
+        <mat-card>
+          <mat-card-title-group>
+            <mat-card-title>{{ catechist.name }}</mat-card-title>
+            <mat-card-subtitle>
+              {{ getCatechistAge(catechist.birth) }}
+            </mat-card-subtitle>
+            <img
+              mat-card-lg-image
+              src="https://material.angular.io/assets/img/examples/shiba2.jpg"
+            />
+          </mat-card-title-group>
+          <mat-card-content>
+            <p><strong>Telefone: </strong> {{ catechist.phone }}</p>
+            <p><strong>E-mail: </strong> {{ catechist.email }}</p>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+  <div class="d-flex justify-content-end mt-3">
+    <button mat-raised-button color="primary" type="submit">Cadastrar</button>
+    <button mat-button type="button" routerLink="/catequistas/busca">
+      Cancelar
+    </button>
+  </div>
+</form>

@@ -9,4 +9,5 @@ export interface Catechist {
   cpf: string;
   address: Address;
   codeClass: string;
+  birth: Date;
 }

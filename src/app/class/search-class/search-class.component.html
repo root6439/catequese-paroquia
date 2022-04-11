@@ -1,0 +1,55 @@
+<app-breadcrumb
+  [names]="['Home', 'Pesquisar turma']"
+  [urls]="['/', '/turmas/busca']"
+></app-breadcrumb>
+
+<h1>Administrar turmas de catequese</h1>
+
+<app-insert-filter
+  (clickInsert)="router.navigate(['/turmas/cadastro'])"
+></app-insert-filter>
+
+<div class="mat-elevation-z1 mt-3">
+  <table mat-table [dataSource]="dataSource" matSort class="w-100">
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Matrícula</th>
+      <td mat-cell *matCellDef="let class">{{ class.id }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="catechizing">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        Catequista(s) responsável(eis)
+      </th>
+      <td mat-cell *matCellDef="let class">
+        {{ class.catechists[0]?.name }}, {{ class.catechists[1]?.name }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="beginDate">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Data de início</th>
+      <td mat-cell *matCellDef="let class">
+        {{ class.startDate | date: "dd/MM/yyyy" }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="endDate">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Data de término</th>
+      <td mat-cell *matCellDef="let class">
+        {{ class.endDate | date: "dd/MM/yyyy" }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="code">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Código</th>
+      <td mat-cell *matCellDef="let class">{{ class.code }}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+
+  <mat-paginator
+    [pageSizeOptions]="[5, 10, 25, 100]"
+    aria-label="Select page of users"
+  ></mat-paginator>
+</div>

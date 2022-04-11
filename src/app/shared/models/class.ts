@@ -1,7 +1,7 @@
 import { Catechist } from './catechist';
 export interface Class {
   id: number;
-  catechist: Catechist[];
+  catechists: Catechist[];
   startDate: Date;
   endDate: Date;
   code: string;
