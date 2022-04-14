@@ -34,6 +34,7 @@ import { ROUTES } from './class.routes';
     MatButtonModule,
     MatAutocompleteModule,
     RouterModule.forChild(ROUTES),
+    SharedModule,
   ],
 })
 export class ClassModule {}

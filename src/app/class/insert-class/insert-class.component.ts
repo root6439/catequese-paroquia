@@ -6,7 +6,6 @@ import {
   FormControl,
 } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
-import { dateInputsHaveChanged } from '@angular/material/datepicker/datepicker-input-base';
 
 @Component({
   selector: 'app-insert-class',
@@ -16,7 +15,7 @@ import { dateInputsHaveChanged } from '@angular/material/datepicker/datepicker-i
 export class InsertClassComponent implements OnInit {
   form: FormGroup = new FormGroup({});
   searchCatechist: FormControl = new FormControl('');
-  catechists: Catechist[] = [
+  catechists: Set<Catechist> = new Set<Catechist>([
     {
       id: 1,
       name: 'Nicolas Soares Henrique',
@@ -39,9 +38,9 @@ export class InsertClassComponent implements OnInit {
       rg: '6863159',
       birth: new Date('1996-08-09T03:24:00'),
     },
-  ];
+  ]);
 
-  selectedCatechists: Catechist[] = [];
+  selectedCatechists: Set<Catechist> = new Set<Catechist>();
 
   constructor(private fb: FormBuilder) {}
 
@@ -67,13 +66,5 @@ export class InsertClassComponent implements OnInit {
     let actualDate: Date = new Date();
     let age: number = actualDate.getFullYear() - birth.getFullYear();
     return `${age} anos`;
-  }
-
-  addCatechist(cat: Catechist): void {
-    if (!this.selectedCatechists.includes(cat)) {
-      this.selectedCatechists.push(cat);
-    } else {
-      //alerta catequista já selecionado
-    }
   }
 }
