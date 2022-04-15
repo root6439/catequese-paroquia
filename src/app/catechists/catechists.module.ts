@@ -14,7 +14,8 @@ import { InsertCatechistsComponent } from './insert-catechists/insert-catechists
 import { SearchCatechistsComponent } from './search-catechists/search-catechists.component';
 import { ROUTES } from './catechists.routes';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MAT_DATE_LOCALE } from '@angular/material/core';
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [InsertCatechistsComponent, SearchCatechistsComponent],
@@ -30,7 +31,10 @@ import { MAT_DATE_LOCALE } from '@angular/material/core';
     MatIconModule,
     MatDatepickerModule,
     ReactiveFormsModule,
-    MatButtonModule
+    MatButtonModule,
+    NgxSkeletonLoaderModule,
+    MatProgressSpinnerModule,
+    SharedModule,
   ],
 })
-export class CatechistsModule { }
+export class CatechistsModule {}

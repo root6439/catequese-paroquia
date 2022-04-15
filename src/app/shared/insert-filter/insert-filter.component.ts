@@ -1,26 +1,31 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-insert-filter',
   templateUrl: './insert-filter.component.html',
   styleUrls: ['./insert-filter.component.scss'],
 })
-export class InsertFilterComponent implements OnInit {
+export class InsertFilterComponent {
+  search: FormControl = new FormControl('');
+
   hide: boolean = false;
+
+  @Input() label: string = '';
 
   @Output() clickInsert: EventEmitter<void> = new EventEmitter();
 
-  @Output() clickFilter: EventEmitter<void> = new EventEmitter();
-
-  constructor() {}
-
-  ngOnInit(): void {}
+  @Output() clickRefresh: EventEmitter<void> = new EventEmitter();
 
   onClickInsert(): void {
     this.clickInsert.emit();
   }
 
-  onClickFilter(): void {
-    this.clickFilter.emit();
+  onClickRefresh(): void {
+    this.clickRefresh.emit();
+  }
+
+  resetSearch(): void {
+    this.search.reset();
   }
 }

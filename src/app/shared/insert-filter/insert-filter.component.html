@@ -1,14 +1,23 @@
-<button
-  mat-raised-button
-  color="primary"
-  type="button"
-  (click)="onClickInsert()"
->
-  <mat-icon>add_circle_outline</mat-icon>
-  Cadastrar
-</button>
+<div class="d-flex align-items-center">
+  <div class="flex-grow-1">
+    <mat-form-field appearance="outline" class="w-99">
+      <mat-label> {{ label }} </mat-label>
+      <input matInput [formControl]="search" />
+      <mat-icon matPrefix>search</mat-icon>
+      <mat-icon matSuffix (click)="resetSearch()" style="cursor: pointer;">close</mat-icon>
+    </mat-form-field>
+  </div>
 
-<button type="button" mat-stroked-button matSuffix (click)="hide = !hide" class="mx-2">
-  <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
-  Filtros
-</button>
+  <button
+    mat-flat-button
+    color="primary"
+    type="button"
+    (click)="onClickInsert()"
+  >
+    <mat-icon>add_circle_outline</mat-icon>
+    Cadastrar
+  </button>
+  <button mat-icon-button type="button" (click)="onClickRefresh()">
+    <mat-icon>refresh</mat-icon>
+  </button>
+</div>
