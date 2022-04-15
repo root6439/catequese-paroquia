@@ -13,7 +13,7 @@ import { MatTableDataSource } from '@angular/material/table';
   styleUrls: ['./search-catechists.component.scss'],
 })
 export class SearchCatechistsComponent implements OnInit {
-  displayedColumns: string[] = ['name', 'phone', 'email', 'codeClass'];
+  displayedColumns: string[] = ['name', 'phone', 'email', 'cpf', 'codeClass'];
   dataSource: MatTableDataSource<Catechist>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -33,6 +33,7 @@ export class SearchCatechistsComponent implements OnInit {
       x.forEach((item) => {
         catechists.push(item.payload.toJSON() as Catechist);
       });
+      console.log(catechists);
 
       this.dataSource = new MatTableDataSource(catechists);
       this.dataSource.paginator = this.paginator;

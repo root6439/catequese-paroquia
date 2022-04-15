@@ -1,3 +1,4 @@
+import { RgPipe } from './pipes/rg.pipe';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -11,6 +12,7 @@ import { InsertFilterComponent } from './insert-filter/insert-filter.component';
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 import { ProgressSpinnerTableComponent } from './progress-spinner-table/progress-spinner-table.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { CpfPipe } from './pipes/cpf.pipe';
 
 @NgModule({
   declarations: [
@@ -18,6 +20,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     BreadcrumbComponent,
     PhonePipe,
     ProgressSpinnerTableComponent,
+    CpfPipe,
+    RgPipe,
   ],
   imports: [
     CommonModule,
@@ -35,6 +39,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     BreadcrumbComponent,
     PhonePipe,
     ProgressSpinnerTableComponent,
+    CpfPipe,
+    RgPipe,
   ],
 })
 export class SharedModule {}
