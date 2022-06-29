@@ -1,3 +1,4 @@
+import { CatechizingService } from './catechizing.service';
 import { MatIconModule } from '@angular/material/icon';
 import { SharedModule } from './../shared/shared.module';
 import { ROUTES } from './catechizing.routes';
@@ -15,6 +16,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [SearchCatechizingComponent, InsertCatechizingComponent],
@@ -32,6 +34,8 @@ import { MatButtonModule } from '@angular/material/button';
     MatCardModule,
     MatIconModule,
     MatButtonModule,
+    MatSnackBarModule,
   ],
+  providers: [CatechizingService],
 })
 export class CatechizingModule {}

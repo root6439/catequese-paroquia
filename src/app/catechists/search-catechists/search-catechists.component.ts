@@ -1,4 +1,3 @@
-import { SpinnerService } from './../../shared/progress-spinner-table/spinner.service';
 import { CatechistsService } from './../catechists.service';
 import { Catechist } from './../../shared/models/catechist';
 import { Router } from '@angular/router';
@@ -21,24 +20,8 @@ export class SearchCatechistsComponent implements OnInit {
 
   constructor(
     public router: Router,
-    private catechistService: CatechistsService,
-    private spinnerService: SpinnerService
+    private catechistService: CatechistsService
   ) {}
 
-  ngOnInit(): void {
-    this.spinnerService.show();
-    let aux = this.catechistService.getCatechistList();
-    let catechists: Catechist[] = [];
-    aux.snapshotChanges().subscribe((x) => {
-      x.forEach((item) => {
-        catechists.push(item.payload.toJSON() as Catechist);
-      });
-      console.log(catechists);
-
-      this.dataSource = new MatTableDataSource(catechists);
-      this.dataSource.paginator = this.paginator;
-      this.dataSource.sort = this.sort;
-      this.spinnerService.hide();
-    });
-  }
+  ngOnInit(): void {}
 }

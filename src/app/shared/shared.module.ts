@@ -8,9 +8,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { InsertFilterComponent } from './insert-filter/insert-filter.component';
-import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
-import { ProgressSpinnerTableComponent } from './progress-spinner-table/progress-spinner-table.component';
+import { InsertFilterComponent } from './components/insert-filter/insert-filter.component';
+import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { CpfPipe } from './pipes/cpf.pipe';
 
@@ -19,7 +18,6 @@ import { CpfPipe } from './pipes/cpf.pipe';
     InsertFilterComponent,
     BreadcrumbComponent,
     PhonePipe,
-    ProgressSpinnerTableComponent,
     CpfPipe,
     RgPipe,
   ],
@@ -38,7 +36,6 @@ import { CpfPipe } from './pipes/cpf.pipe';
     InsertFilterComponent,
     BreadcrumbComponent,
     PhonePipe,
-    ProgressSpinnerTableComponent,
     CpfPipe,
     RgPipe,
   ],

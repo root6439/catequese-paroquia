@@ -9,6 +9,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { environment } from 'src/environments/environment';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent],
@@ -18,8 +19,7 @@ import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
     HeaderModule,
     RouterModule.forRoot(ROUTES),
     MatNativeDateModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFireDatabaseModule,
+    HttpClientModule,
   ],
   bootstrap: [AppComponent],
 })

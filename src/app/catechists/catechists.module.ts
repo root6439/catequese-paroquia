@@ -21,20 +21,15 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
   declarations: [InsertCatechistsComponent, SearchCatechistsComponent],
   imports: [
     CommonModule,
-    RouterModule.forChild(ROUTES),
     SharedModule,
     MatTableModule,
+    MatCardModule,
     MatPaginatorModule,
+    ReactiveFormsModule,
+    MatIconModule,
     MatFormFieldModule,
     MatInputModule,
-    MatCardModule,
-    MatIconModule,
     MatDatepickerModule,
-    ReactiveFormsModule,
-    MatButtonModule,
-    NgxSkeletonLoaderModule,
-    MatProgressSpinnerModule,
-    SharedModule,
   ],
 })
 export class CatechistsModule {}
