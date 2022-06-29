@@ -1,3 +1,5 @@
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { AlertService } from './shared/components/alert/alert.service';
 import { ROUTES } from './app.routes';
 import { HeaderModule } from './header/header.module';
 import { NgModule } from '@angular/core';
@@ -20,7 +22,9 @@ import { HttpClientModule } from '@angular/common/http';
     RouterModule.forRoot(ROUTES),
     MatNativeDateModule,
     HttpClientModule,
+    MatSnackBarModule,
   ],
   bootstrap: [AppComponent],
+  providers: [AlertService],
 })
 export class AppModule {}

@@ -12,6 +12,8 @@ import { InsertFilterComponent } from './components/insert-filter/insert-filter.
 import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { CpfPipe } from './pipes/cpf.pipe';
+import { AlertComponent } from './components/alert/alert.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,7 @@ import { CpfPipe } from './pipes/cpf.pipe';
     PhonePipe,
     CpfPipe,
     RgPipe,
+    AlertComponent,
   ],
   imports: [
     CommonModule,
@@ -31,6 +34,7 @@ import { CpfPipe } from './pipes/cpf.pipe';
     MatIconModule,
     ReactiveFormsModule,
     MatProgressSpinnerModule,
+    MatSnackBarModule,
   ],
   exports: [
     InsertFilterComponent,
@@ -38,6 +42,7 @@ import { CpfPipe } from './pipes/cpf.pipe';
     PhonePipe,
     CpfPipe,
     RgPipe,
+    AlertComponent,
   ],
 })
 export class SharedModule {}

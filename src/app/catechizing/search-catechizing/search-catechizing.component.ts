@@ -1,10 +1,12 @@
+import { Direction } from './../../shared/models/DirectionEnum';
+import { AlertService } from './../../shared/components/alert/alert.service';
 import { Pageable } from './../../shared/models/pageable';
 import { CatechizingService } from './../catechizing.service';
 import { Catechizing } from './../../shared/models/catechizing';
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
-import { MatSort } from '@angular/material/sort';
+import { MatSort, Sort, SortDirection } from '@angular/material/sort';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { i18nMetaToJSDoc } from '@angular/compiler/src/render3/view/i18n/meta';
@@ -15,7 +17,13 @@ import { i18nMetaToJSDoc } from '@angular/compiler/src/render3/view/i18n/meta';
   styleUrls: ['./search-catechizing.component.scss'],
 })
 export class SearchCatechizingComponent implements OnInit, AfterViewInit {
-  displayedColumns: string[] = ['id', 'name', 'birthDate', 'class', 'parent'];
+  displayedColumns: string[] = [
+    'name',
+    'birthDate',
+    'class',
+    'parent',
+    'actions',
+  ];
   dataSource: MatTableDataSource<Catechizing> = new MatTableDataSource();
 
   cat$: Subscription = new Subscription();
@@ -25,7 +33,11 @@ export class SearchCatechizingComponent implements OnInit, AfterViewInit {
 
   dataLength: number = 0;
 
-  constructor(public router: Router, private service: CatechizingService) {}
+  constructor(
+    public router: Router,
+    private service: CatechizingService,
+    private alertService: AlertService
+  ) {}
 
   ngOnInit(): void {}
 
@@ -38,10 +50,12 @@ export class SearchCatechizingComponent implements OnInit, AfterViewInit {
   getData(
     search: string = '',
     page: number = 0,
-    linesPerPage: number = 5
+    linesPerPage: number = 5,
+    orderBy: string = 'name',
+    direction?: SortDirection
   ): void {
     this.cat$ = this.service
-      .search(search, page, linesPerPage)
+      .getCatechizings(search, page, linesPerPage, orderBy, direction)
       .subscribe((resp: Pageable<Catechizing>) => {
         console.log(resp);
 

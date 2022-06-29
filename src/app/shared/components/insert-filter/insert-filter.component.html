@@ -1,10 +1,18 @@
 <div class="d-flex align-items-center">
   <div class="flex-grow-1">
-    <mat-form-field appearance="outline" class="w-99">
+    <mat-form-field class="w-99">
       <mat-label> {{ label }} </mat-label>
-      <input matInput [formControl]="search" />
-      <mat-icon matPrefix>search</mat-icon>
-      <mat-icon matSuffix (click)="resetSearch()" style="cursor: pointer;">close</mat-icon>
+      <input
+        matInput
+        [formControl]="search"
+        (ngModelChange)="searchSub.next($event)"
+      />
+      <mat-icon matSuffix (click)="resetSearch()" class="cursor-pointer">
+        close
+      </mat-icon>
+      <mat-error *ngIf="search.hasError('minlength')">
+        Necessário informar ao menos 5 caracteres
+      </mat-error>
     </mat-form-field>
   </div>
 
