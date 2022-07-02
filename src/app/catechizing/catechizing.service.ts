@@ -10,6 +10,7 @@ import { Injectable } from '@angular/core';
 import { catchError, Observable } from 'rxjs';
 import { Pageable } from '../shared/models/pageable';
 import { SortDirection } from '@angular/material/sort';
+import { HttpParamsBuilder } from '../shared/utils/HttpParamsBuilder';
 
 @Injectable({
   providedIn: 'root',
@@ -23,18 +24,24 @@ export class CatechizingService {
     search: string = '',
     page: number = 0,
     linesPerPage: number = 5,
-    orderBy: string = 'name',
+    orderBy: string = '',
     direction: SortDirection = 'desc'
   ): Observable<Pageable<Catechizing>> {
     let params: HttpParams = new HttpParams();
-    params = params.append('page', page);
-    params = params.append('linesPerPage', linesPerPage);
+    params = HttpParamsBuilder.buildParamsPage(
+      page,
+      linesPerPage,
+      orderBy,
+      direction
+    );
     params = params.append('name', search);
-    params = params.append('orderBy', orderBy);
-    params = params.append('direction', direction.toUpperCase());
 
     return this.http.get<Pageable<Catechizing>>(`${this.url}/page`, {
       params: params,
     });
+  }
+
+  postCatechizing(cat: Catechizing): Observable<Catechizing> {
+    return this.http.post<Catechizing>(`${this.url}`, cat);
   }
 }

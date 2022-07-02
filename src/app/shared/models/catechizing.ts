@@ -4,8 +4,8 @@ import { Parent } from './parent';
 export interface Catechizing {
   id: number;
   name: string;
-  birthDay: Date;
+  birthDate: number;
   parentName: string;
   parentPhone: string;
-  classCatechizing: Class;
+  classCat: Class;
 }

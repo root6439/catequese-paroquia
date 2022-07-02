@@ -15,30 +15,7 @@ import { Component, OnInit } from '@angular/core';
 export class InsertClassComponent implements OnInit {
   form: FormGroup = new FormGroup({});
   searchCatechist: FormControl = new FormControl('');
-  catechists: Set<Catechist> = new Set<Catechist>([
-    {
-      id: 1,
-      name: 'Nicolas Soares Henrique',
-      email: 'nicolas.soaresh.98@@gmail.com',
-      phone: '48984689248',
-      codeClass: '2022/01',
-      address: null,
-      cpf: '10553687956',
-      rg: '6863159',
-      birth: new Date('1998-08-07T03:24:00'),
-    },
-    {
-      id: 2,
-      name: 'Caroline Kroeger',
-      email: 'caroline.kroeger@gmail.com',
-      phone: '48984689248',
-      codeClass: '2022/01',
-      address: null,
-      cpf: '10553687956',
-      rg: '6863159',
-      birth: new Date('1996-08-09T03:24:00'),
-    },
-  ]);
+  catechists: Set<Catechist> = new Set<Catechist>([]);
 
   selectedCatechists: Set<Catechist> = new Set<Catechist>();
 

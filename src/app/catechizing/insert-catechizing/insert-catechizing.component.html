@@ -1,15 +1,11 @@
 <app-breadcrumb
-  [names]="[
-    'Home',
-    'Pesquisar catequisando',
-    'Cadastrar catequisando'
-  ]"
+  [names]="['Home', 'Pesquisar catequisando', 'Cadastrar catequisando']"
   [urls]="['/', '/catequisandos/busca', '/catequisandos/cadastro']"
 ></app-breadcrumb>
 
 <h1>Cadastrar catequisandos</h1>
 
-<form (ngSubmit)="onSubmit()" [formGroup]="form">
+<form (ngSubmit)="save()" [formGroup]="form">
   <mat-card>
     <mat-card-header>
       <div mat-card-avatar>
@@ -60,29 +56,8 @@
         </mat-form-field>
 
         <mat-form-field appearance="legacy" class="col-6">
-          <mat-label>Data de nascimento</mat-label>
-          <input
-            matInput
-            [matDatepicker]="picker2"
-            formControlName="parentBirth"
-          />
-          <mat-datepicker-toggle
-            matSuffix
-            [for]="picker2"
-          ></mat-datepicker-toggle>
-          <mat-datepicker #picker2></mat-datepicker>
-        </mat-form-field>
-      </div>
-
-      <div class="row">
-        <mat-form-field appearance="legacy" class="col-6">
-          <mat-label>RG</mat-label>
-          <input matInput formControlName="rg" />
-        </mat-form-field>
-
-        <mat-form-field appearance="legacy" class="col-6">
-          <mat-label>CPF</mat-label>
-          <input matInput formControlName="cpf" />
+          <mat-label>Telefone</mat-label>
+          <input matInput formControlName="parentPhone" />
         </mat-form-field>
       </div>
     </mat-card-content>
@@ -100,7 +75,22 @@
       <div class="row">
         <mat-form-field appearance="legacy" class="col-6">
           <mat-label>Código da turma</mat-label>
-          <input matInput formControlName="code" />
+          <input
+            type="text"
+            matInput
+            formControlName="code"
+            [matAutocomplete]="auto"
+            (ngModelChange)="classSub.next($event)"
+          />
+          <mat-autocomplete #auto="matAutocomplete">
+            <mat-option
+              *ngFor="let option of avaibleClasses"
+              [value]="option"
+              (onSelectionChange)="handleClass(option)"
+            >
+              {{ option.code }}
+            </mat-option>
+          </mat-autocomplete>
         </mat-form-field>
 
         <mat-form-field appearance="legacy" class="col-3">
@@ -128,7 +118,7 @@
         </mat-form-field>
       </div>
 
-      <div class="row" formGroupName="catequist1">
+      <div class="row" formGroupName="catechist1">
         <mat-form-field appearance="legacy" class="col-6">
           <mat-label>Catequista 1</mat-label>
           <input matInput formControlName="name" />
@@ -140,7 +130,7 @@
         </mat-form-field>
       </div>
 
-      <div class="row" formGroupName="catequist2">
+      <div class="row" formGroupName="catechist2">
         <mat-form-field appearance="legacy" class="col-6">
           <mat-label>Catequista 2</mat-label>
           <input matInput formControlName="name" />
@@ -156,6 +146,8 @@
 
   <div class="d-flex justify-content-end mt-3">
     <button mat-raised-button color="primary" type="submit">Cadastrar</button>
-    <button mat-button type="button" routerLink="/catequisandos/busca">Cancelar</button>
+    <button mat-button type="button" routerLink="/catequisandos/busca">
+      Cancelar
+    </button>
   </div>
 </form>

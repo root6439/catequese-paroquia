@@ -10,13 +10,5 @@ import {
   providedIn: 'root',
 })
 export class CatechistsService {
-  catechistListRef: AngularFireList<Catechist[]>;
-  catechistRef: AngularFireObject<Catechist>;
-
-  constructor(private db: AngularFireDatabase) {}
-
-  getCatechistList() {
-    this.catechistListRef = this.db.list('/catechists');
-    return this.catechistListRef;
-  }
+  constructor() {}
 }
